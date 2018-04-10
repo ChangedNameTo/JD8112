@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # Homepages
-  root 'home#logged_in'
-  get 'authenticate', to: 'home#logged_out'
-  resource :home, only: [:logged_in, :logged_out]
+  root 'home#logged_out'
+  resource :home, :controller => 'home' do
+    get :logged_in, :logged_out, :logged_in_admin, :demo_team, :vote_team
+  end
 end
