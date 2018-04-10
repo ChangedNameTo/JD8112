@@ -19,15 +19,14 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Semantic cause bootstrap is failing me for some stuff
-gem 'less-rails'
-gem 'less-rails-semantic_ui'
-gem 'autoprefixer-rails'
-gem 'therubyracer'
+gem 'semantic-ui-sass'
 gem 'jquery-timepicker-rails'
 gem 'jquery-ui-rails'
+
+gem 'sprockets', '3.6.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
