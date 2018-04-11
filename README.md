@@ -1,24 +1,49 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+For my junior design team, here is the stuff you need to get started. Read the full readme before starting
 
-Things you may want to cover:
+* Install ruby using rvm
 
-* Ruby version
+rvm is Ruby Version Manager, here to guide you through the waters of versioning.
 
-* System dependencies
+`gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB`
 
-* Configuration
+`\curl -sSL https://get.rvm.io | bash -s stable --rails --ruby=2.3.1`
 
-* Database creation
+You have to use ruby 2.3.1. **Without this you will have compatibility issues with gems**
 
-* Database initialization
+* Install PostgreSQL
 
-* How to run the test suite
+Postgres is the db backing for the project, fairly light and easy to use.
 
-* Services (job queues, cache servers, search engines, etc.)
+Follow the instructions here: https://wiki.postgresql.org/wiki/Detailed_installation_guides
 
-* Deployment instructions
+* Verify rails is installed
 
-* ...
+`rails --version`
+
+If this doesn't work do `gem install rails`
+
+* Add LiveReload
+
+LiveReload is a simple extension that reloads the browser window every time you make a change to the code. Makes changes much faster. Find it here: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en
+
+* Clone project
+
+* Build gems
+
+Bundler is a tool that bulk installs ruby gems. `bundle install`
+
+* Start the server
+
+Start the server with `rails s`
+
+In another terminal start LiveReload with `bundle exec guard`
+
+Click the LiveReload icon in browser to connect the refresher
+
+* Start working!
+
+---
+
+If you have any questions contact me
