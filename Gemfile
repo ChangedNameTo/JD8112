@@ -26,6 +26,11 @@ gem 'semantic-ui-sass'
 gem 'jquery-timepicker-rails'
 gem 'jquery-ui-rails'
 
+# Google oauth2 for uac
+gem 'omniauth-google-oauth2', '~>0.4.1'
+# Pundit for roles
+gem 'pundit'
+
 gem 'sprockets', '3.6.3'
 
 # Use jquery as the JavaScript library
