@@ -36,6 +36,8 @@ Bundler is a tool that bulk installs ruby gems. `bundle install`
 
 * Start the server
 
+
+
 Start the server with `rails s`
 
 In another terminal start LiveReload with `bundle exec guard`
@@ -46,4 +48,9 @@ Click the LiveReload icon in browser to connect the refresher
 
 ---
 
-If you have any questions contact me
+If you have any questions contact me @ william.m95@gmail.com
+
+# Tools used
+
+https://semantic-ui.com/
+https://rvm.io/
