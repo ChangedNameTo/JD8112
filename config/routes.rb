@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
+
+  # Authentication
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+  resources :sessions, only: [:create, :destroy]
+
   # Homepages
-  root 'home#logged_out'
-  resource :home, :controller => 'home' do
-    get :logged_in, :logged_out, :logged_in_admin, :demo_team, :vote_team, :map, :map_click
-  end
+  root 'home#logged_in'
+  get 'authenticate', to: 'home#logged_out'
+  resource :home, only: [:logged_in, :logged_out]
+
+  # Users
+  resources :users
+
+  # Roles
+  resources :roles
 end

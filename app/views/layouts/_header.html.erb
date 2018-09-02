@@ -3,5 +3,10 @@
   <div class="ui container">
     <%= link_to "Home", root_path, class:"item" %>
   </div>
+  <% if current_user %>
+    <div class="right menu">
+      <%= link_to 'Log Out', signout_path, class:"item" %>
+    </div>
+  <% end %>
 </div>
 <section style="padding: 30px 0px; min-height: 87%;" id="main">

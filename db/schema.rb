@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 1) do
     t.string   "first_name",                       null: false
     t.string   "last_name",                        null: false
     t.string   "phone_number"
+    t.string   "image"
     t.boolean  "enabled",          default: false, null: false
     t.string   "email_address",                    null: false
     t.string   "provider",                         null: false
