@@ -28,8 +28,12 @@ gem 'jquery-ui-rails'
 
 # Google oauth2 for uac
 gem 'omniauth-google-oauth2', '~>0.4.1'
+
 # Pundit for roles
 gem 'pundit'
+
+# Figaro for testing omniauth
+gem 'figaro'
 
 gem 'sprockets'
 
@@ -55,6 +59,15 @@ group :development do
   gem 'guard'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-annotate'
+end
+
+group :test do
+  gem 'rspec-rails',        '~> 3.5', '>= 3.5.2'
+  gem 'factory_girl_rails', '~> 4.7'
+  gem 'faker',              '~> 1.6', '>= 1.6.6'
+  gem 'database_cleaner',   '~> 1.5', '>= 1.5.3'
+  gem 'shoulda-matchers',   '~> 3.1'
+  gem 'capybara'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
