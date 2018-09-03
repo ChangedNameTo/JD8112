@@ -6,6 +6,7 @@ rvm:
 script:
 - bin/rake db:migrate RAILS_ENV=test
 - bin/rake
+- bundle exec rspec
 
 notifications:
 	slack: jd8112:k0zDEsRj4v33kz1p6JcIFFyv
