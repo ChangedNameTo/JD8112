@@ -9,4 +9,4 @@ script:
 - bundle exec rspec
 
 notifications:
-	slack: jd8112:k0zDEsRj4v33kz1p6JcIFFyv
+    slack: jd8112:k0zDEsRj4v33kz1p6JcIFFyv
