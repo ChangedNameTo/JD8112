@@ -1,6 +1,8 @@
 # README
 
-For my junior design team, here is the stuff you need to get started. Read the full readme before starting
+[![Build Status](https://travis-ci.org/ChangedNameTo/JD8112.svg?branch=master)](https://travis-ci.org/ChangedNameTo/JD8112)
+
+For my junior design team, and any future deployers of code, here is the stuff you need to get started. Read the full readme before starting
 
 * Install ruby using rvm
 
