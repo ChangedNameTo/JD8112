@@ -7,31 +7,9 @@
   <h3 class="ui center aligned header">
     Please sign in to continue
   </h3>
-  <form class="ui form error">
-    <div class="form">
-      <div class="fields">
-        <div class="required eight wide field">
-          <label>User</label>
-          <input type="text" placeholder="User">
-        </div>
-
-        <div class="required eight wide field">
-          <label>Password</label>
-          <input type="text" placeholder="Password">
-        </div>
-      </div>
-    </div>
-  </form>
-  <div class="ui equal width grid">
-    <div class="row">
-      <div class="column">
-        <%= link_to "Log In User", logged_in_home_path(), :class=> "ui blue fluid button" %>
-      </div>
-      <div class="column">
-        <%= link_to "Log In Admin",logged_in_admin_home_path(), :class=> "ui green fluid button" %>
-      </div>
-    </div>
-  </div>
+  <%= link_to "/auth/google_oauth2", :class=> "ui google plus fluid button" do %>
+    <i class="google plus icon"></i>
+  <% end %>
 </div>
 
 <%= render 'layouts/footer' %>

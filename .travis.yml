@@ -6,6 +6,7 @@ rvm:
 bundler_args: --without production
 
 script:
+- bin/rake db:setup RAILS_ENV=test
 - bin/rake db:migrate RAILS_ENV=test
 - bin/rake
 - bundle install

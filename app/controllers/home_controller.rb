@@ -1,10 +1,13 @@
 class HomeController < ApplicationController
   def logged_in
-  end
+    skip_authorization
 
-  def logged_in_admin
+    unless current_user
+      redirect_to authenticate_path
+    end
   end
 
   def logged_out
+    skip_authorization
   end
 end
