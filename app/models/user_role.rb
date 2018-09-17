@@ -24,4 +24,13 @@ class UserRole < ApplicationRecord
       scope: :user,
       message: "Duplicate roles are not allowed"
     }
+
+  # Helpers
+  def full_name
+    User.find(self.user_id).full_name
+  end
+
+  def role_label
+    Role.find(self.role_id).label
+  end
 end

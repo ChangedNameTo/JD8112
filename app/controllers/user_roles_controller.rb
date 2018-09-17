@@ -6,7 +6,7 @@ class UserRolesController < ApplicationController
   end
 
   def index
-    @user_roles = policy_scope(UserRole)
+    @user_roles = UserRole.all.order(role_id: :asc)
   end
 
   def show
@@ -19,9 +19,13 @@ class UserRolesController < ApplicationController
   end
 
   def delete
-    user_role = UserRole.find(params[:user_role_id])
-    user_role.destroy
-    redirect_to roles_user_path(user_role.user)
+    @user_role = UserRole.find(params[:id])
+
+    authorize @user_role
+
+    @user_role.delete
+
+    redirect_to :back
   end
 
   private
@@ -31,6 +35,9 @@ class UserRolesController < ApplicationController
   end
 
   def user_role_params
-    params.require(:user_role).permit(:user_id, :role_id)
+    params.require(:user_role).permit(
+      :user_id,
+      :role_id
+    )
   end
 end
