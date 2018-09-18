@@ -15,10 +15,10 @@ class UserRole < ApplicationRecord
   belongs_to :role
 
   # Validations
-  validates :user,
+  validates :user_id,
     presence: true
 
-  validates :role,
+  validates :role_id,
     presence: true,
     uniqueness: {
       scope: :user,

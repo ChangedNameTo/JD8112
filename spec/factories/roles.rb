@@ -9,20 +9,12 @@
 #  updated_at  :datetime         not null
 #
 
-class Role < ApplicationRecord
-  # Associations
-  has_many :user_roles
-  has_many :users, through: :user_roles
+FactoryBot.define do
+  factory :role do
+    sequence :label do |n|
+      "Role #{n}"
+    end
 
-  # Validations
-  validates :label,
-    presence: true,
-    uniqueness: true
-
-  validates :description,
-    presence: true
-
-  def label_string
-    "#{label}"
+    description {Faker::Lorem.sentence}
   end
 end
