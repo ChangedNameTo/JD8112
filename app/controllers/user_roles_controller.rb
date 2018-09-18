@@ -15,10 +15,16 @@ class UserRolesController < ApplicationController
   end
 
   def create
-    UserRole.create(user_id: user, role_id: role)
+    @user_role = UserRole.create(user_role_params)
+
+    if @@user_role = user_role.save
+      redirect_to action: "index"
+    else
+      render 'new'
+    end
   end
 
-  def delete
+  def destroy
     @user_role = UserRole.find(params[:id])
 
     authorize @user_role

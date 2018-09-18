@@ -17,7 +17,7 @@
         <td style="text-align:center;"><%= user_role.full_name %></td>
         <td style="text-align:center;"><%= user_role.role_label %></td>
         <td style="text-align:center;">
-          <%= link_to "Delete", user_role_path(user_role),  method: :delete, :class => "ui red button", data: { confirm: 'Delete maintenance request?' } %>
+          <%= link_to "Delete", user_role_path(user_role),  method: :delete, :class => "ui red button", data: { confirm: 'Delete user role?' } %>
         </td>
       </tr>
       <% end %>
