@@ -16,7 +16,7 @@ class ProjectVotesController < ApplicationController
   def create
     @project_vote = ProjectVote.create(project_vote_params)
 
-    if @@project_vote = project_vote.save
+    if @project_vote = project_vote.save
       redirect_to action: "index"
     else
       render 'new'

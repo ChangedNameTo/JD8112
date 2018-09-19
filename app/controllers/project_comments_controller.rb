@@ -16,7 +16,7 @@ class ProjectCommentsController < ApplicationController
   def create
     @project_comment = ProjectComment.create(project_comment_params)
 
-    if @@project_comment = project_comment.save
+    if @project_comment = project_comment.save
       redirect_to action: "index"
     else
       render 'new'

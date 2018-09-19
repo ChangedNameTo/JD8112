@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Projecy.all.order(project_id: :asc)
+    @projects = Project.all.order(id: :asc)
   end
 
   def show
@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.create(project_params)
 
-    if @@project = project.save
+    if @project = project.save
       redirect_to action: "index"
     else
       render 'new'

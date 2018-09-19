@@ -16,7 +16,7 @@ class ProjectMembersController < ApplicationController
   def create
     @project_member = ProjectMember.create(project_member_params)
 
-    if @@project_member = project_member.save
+    if @project_member = project_member.save
       redirect_to action: "index"
     else
       render 'new'

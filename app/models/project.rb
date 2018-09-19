@@ -25,7 +25,7 @@ class Project < ApplicationRecord
   validates :description,
     presence: true
 
-  def label_string
+  def project_name
     "#{name}"
   end
 end
