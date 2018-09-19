@@ -11,7 +11,6 @@ class ProjectsController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @projects = policy_scope(@user.projects)
   end
 
   def create
