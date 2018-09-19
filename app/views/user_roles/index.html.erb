@@ -1,0 +1,41 @@
+<%= render 'layouts/header' %>
+
+<div class="ui container segment">
+  <h1 class="centered ui header">
+    User Roles
+  </h1>
+
+  <table class="ui celled very compact striped table">
+    <tr>
+      <th align="center">User</th>
+      <th align="center">Role</th>
+      <th align="center">Actions</th>
+    </tr>
+    <% if @user_roles %>
+      <% @user_roles.each do |user_role| %>
+      <tr>
+        <td style="text-align:center;"><%= user_role.full_name %></td>
+        <td style="text-align:center;"><%= user_role.role_label %></td>
+        <td style="text-align:center;">
+          <%= link_to "Delete", user_role_path(user_role),  method: :delete, :class => "ui red button", data: { confirm: 'Delete user role?' } %>
+        </td>
+      </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="3" style="text-align:center;">
+          <div class="ui fluid white label">
+            No current user_roles
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <div>
+    <%= link_to "Create a new user role", new_user_role_path(), :class => "ui primary fluid button" %>
+  </div>
+
+</div>
+
+<%= render 'layouts/footer' %>

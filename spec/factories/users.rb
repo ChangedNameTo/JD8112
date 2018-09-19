@@ -27,5 +27,32 @@ FactoryBot.define do
     uid              {Faker::Lorem.characters(10)}
     oauth_token      {Faker::Lorem.characters(10)}
     oauth_expires_at {Faker::Time.between(DateTime.now, DateTime.now + 12.days)}
+
+    trait :sys_admin do
+      after(:create) do |user|
+        UserRole.create!(
+          user: user,
+          role: Role.find_by(label: 'System Admin')
+        )
+      end
+    end
+
+    trait :expo_admin do
+      after(:create) do |user|
+        UserRole.create!(
+          user: user,
+          role: Role.find_by(label: 'Expo Admin')
+        )
+      end
+    end
+
+    trait :member do
+      after(:create) do |user|
+        UserRole.create!(
+          user: user,
+          role: Role.find_by(label: 'Team Member')
+        )
+      end
+    end
   end
 end

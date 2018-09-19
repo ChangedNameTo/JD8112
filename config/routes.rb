@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
   # Roles
   resources :roles
+
+  # UserRoles
+  resources :user_roles
 end
