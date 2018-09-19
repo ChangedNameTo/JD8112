@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 3) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,44 @@ ActiveRecord::Schema.define(version: 2) do
     t.index ["user_id"], name: "index_user_roles_on_user_id", using: :btree
   end
 
+  create_table "project_comments", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "project_id", null: false
+    t.string   "body",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_comments_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_project_comments_on_user_id", using: :btree
+  end
+
+  create_table "project_members", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_members_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_project_members_on_user_id", using: :btree
+  end
+
+  create_table "project_votes", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "project_id", null: false
+    t.boolean  "yes",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_votes_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_project_votes_on_user_id", using: :btree
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.string   "client",      null: false
+    t.string   "repo_link",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name",                       null: false
     t.string   "last_name",                        null: false
@@ -49,4 +87,10 @@ ActiveRecord::Schema.define(version: 2) do
 
   add_foreign_key "user_roles", "roles", name: "fk_user_role_role"
   add_foreign_key "user_roles", "users", name: "fk_user_role_user"
+  add_foreign_key "project_comments", "projects", name: "fk_project_comment_project"
+  add_foreign_key "project_comments", "users", name: "fk_project_comment_user"
+  add_foreign_key "project_members", "projects", name: "fk_project_member_project"
+  add_foreign_key "project_members", "users", name: "fk_project_member_user"
+  add_foreign_key "project_votes", "projects", name: "fk_project_vote_project"
+  add_foreign_key "project_votes", "users", name: "fk_project_vote_user"
 end
