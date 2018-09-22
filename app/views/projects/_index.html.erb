@@ -1,0 +1,29 @@
+<%= render 'layouts/header' %>
+
+<div class="ui container segment">
+  <h1 class="centered ui header">
+    Projects
+  </h1>
+
+  <table class="ui celled very compact striped table">
+    <% if @projects %>
+      <% @projects.each do |project| %>
+      <tr>
+        <td style="text-align:center;"><%= project.name %></td>
+        <td style="text-align:center;"><%= project.project_id %></td>
+      </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="3" style="text-align:center;">
+          <div class="ui fluid white label">
+            No current projects found
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>
+
+<%= render 'layouts/footer' %>
