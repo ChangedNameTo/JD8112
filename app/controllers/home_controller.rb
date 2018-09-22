@@ -5,6 +5,8 @@ class HomeController < ApplicationController
     unless current_user
       redirect_to authenticate_path
     end
+
+    @projects = Project.all.order(id: :asc)
   end
 
   def logged_out
