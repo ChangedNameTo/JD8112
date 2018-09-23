@@ -3,7 +3,7 @@
 # Table name: project_comments
 #
 #  id         :integer          not null, primary key
-#  author_id  :integer          not null
+#  user_id    :integer          not null
 #  project_id :integer          not null
 #  body       :string           not null
 #  created_at :datetime         not null
