@@ -1,0 +1,40 @@
+<%= form_for @user_role, html: {class: 'ui form error'} do |f| %>
+
+  <% if @user_role.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user_role.errors.count, "error") %> prohibited
+        this meal time from being saved:
+      </h2>
+      <ul>
+        <% @user_role.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="fields">
+    <div class="eight wide field">
+      <%= f.label :user_id %>
+      <%= f.collection_select( :user_id, User.all, :id, :full_name, {prompt: "User"}, {:class=>'ui fluid search clearable dropdown'}) %>
+    </div>
+
+    <div class="eight wide field">
+      <%= f.label :role_id %>
+      <%= f.collection_select( :role_id, Role.all, :id, :label, {prompt: "Role"}, {:class=>'ui fluid search clearable dropdown'}) %>
+    </div>
+  </div>
+
+  <div class="ui equal width grid">
+    <div class="row">
+      <div class="column">
+        <%= f.submit 'Submit', :class => 'ui primary fluid button' %>
+      </div>
+      <div class="column">
+        <%= link_to "Back to User Roles", user_roles_path(), :class => "ui primary fluid button" %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
