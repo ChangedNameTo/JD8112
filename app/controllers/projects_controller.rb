@@ -16,8 +16,8 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.create(project_params)
 
-    if @project = project.save
-      redirect_to action: "index"
+    if @project.save
+      redirect_to :controller => 'home', :action => "logged_in"
     else
       render 'new'
     end
@@ -43,6 +43,7 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(
       :project_id,
       :name,
+      :team,
       :description,
       :client,
       :repo_link

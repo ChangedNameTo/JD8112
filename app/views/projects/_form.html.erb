@@ -1,0 +1,63 @@
+<%= form_for @project, html: {class: 'ui form error'} do |f| %>
+
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@project.errors.count, "error") %> prohibited
+        this proejct from being saved:
+      </h2>
+      <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="fields">
+    <div class="required eight wide field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="required eight wide field">
+      <%= f.label :team %>
+      <%= f.text_field :team %>
+    </div>
+  </div>
+
+  <div class="fields">
+    <div class="required eight wide field">
+      <%= f.label :client %>
+      <%= f.text_field :client %>
+    </div>
+
+    <div class="required eight wide field">
+      <%= f.label :repo_link %>
+      <div class="ui icon input conflictable">
+          <%= f.text_field :repo_link %>
+        <i class="github icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="fields">
+    <div class="required sixteen wide field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+  </div>
+
+  <br/>
+  <div class="ui equal width grid">
+    <div class="row">
+      <div class="column">
+        <%= f.submit 'Submit', :class => 'ui green fluid button' %>
+      </div>
+      <div class="column">
+        <%= link_to "Back to Projects", root_path(), :class => "ui primary fluid button" %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

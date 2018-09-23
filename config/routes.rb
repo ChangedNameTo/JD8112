@@ -19,4 +19,7 @@ Rails.application.routes.draw do
 
   # UserRoles
   resources :user_roles
+
+  # Projects
+  resources :projects
 end

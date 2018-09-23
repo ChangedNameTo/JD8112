@@ -4,6 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  name        :string           not null
+#  team        :string           not null
 #  description :string           not null
 #  client      :string           not null
 #  repo_link   :string           not null

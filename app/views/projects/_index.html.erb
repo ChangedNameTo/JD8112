@@ -21,7 +21,12 @@
           </div>
         </td>
       </tr>
-    <% end %> 
+    <% end %>
     </tr>
   </table>
+  <% if policy(:project).create? %>
+    <div class="ui row">
+      <%= link_to 'Add a New Project', new_project_path(), :class => "ui primary fluid button" %>
+    </div>
+  <% end %>
 </div>
