@@ -1,0 +1,27 @@
+<div class="ui container segment">
+  <h2 class="ui center aligned header">Projects</h2>
+  <table class="ui celled striped sortable 3 column table">
+    <tr>
+      <th align="center">Team Number</th>
+      <th align="center">Project Name</th>
+      <th align="center">Actions</th>
+    <% if @projects && @projects.count != 0 %>
+      <% @projects.each do |project| %>
+      <tr>
+        <td style="text-align:center;"><%= project.id %></td>
+        <td style="text-align:center;"><%= project.name %></td>
+        <td </td>
+      </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="3" style="text-align:center;">
+          <div class="ui fluid white label">
+            No current projects
+          </div>
+        </td>
+      </tr>
+    <% end %> 
+    </tr>
+  </table>
+</div>
