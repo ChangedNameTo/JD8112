@@ -5,18 +5,16 @@ class ProjectCommentsController < ApplicationController
     @project_comment = ProjectComment.new
   end
 
-  def index
-    @project_comments = ProjectComment.all.order(author_id: :asc)
-  end
+  def edit
+    @project_comment = ProjectComment.find(params[:id])
 
-  def show
-    @user = ProjectComment.find(params[:id])
+    authorize @project_comment
   end
 
   def create
     @project_comment = ProjectComment.create(project_comment_params)
 
-    if @project_comment = project_comment.save
+    if @project_comment.save
       redirect_to action: "index"
     else
       render 'new'

@@ -22,4 +22,5 @@ Rails.application.routes.draw do
 
   # Projects
   resources :projects
+  resources :project_comments
 end

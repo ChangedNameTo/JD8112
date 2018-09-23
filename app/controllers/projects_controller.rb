@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :authorize_action
+  before_action :authorize_action,
+    only: [:index, :show, :new, :create]
 
   def new
     @project = Project.new
@@ -9,8 +10,29 @@ class ProjectsController < ApplicationController
     @projects = Project.all.order(id: :asc)
   end
 
+  def edit
+    @project = Project.find(params[:id])
+
+    authorize @project
+  end
+
+  def update
+		@project = Project.find(params[:id])
+
+    authorize @project
+
+		if @project.update(project_params)
+			redirect_to @project
+		else
+			render 'edit'
+		end
+	end
+
   def show
-    @user = User.find(params[:id])
+    @project          = Project.find(params[:id])
+    @members          = ProjectMember.where(project_id: @project.id)
+    @project_comments = ProjectComment.where(project_id: @project.id)
+    @project_comment  = @project.project_comments.build(user: current_user)
   end
 
   def create
@@ -47,6 +69,14 @@ class ProjectsController < ApplicationController
       :description,
       :client,
       :repo_link
+    )
+  end
+
+  def project_comment_params
+    params.require(:project_comment).permit(
+      :author_id,
+      :project_id,
+      :body
     )
   end
 end
