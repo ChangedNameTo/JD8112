@@ -5,23 +5,19 @@ class ProjectPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    user.has_role?(Role.where(label: 'System Admin'))
-  end
-
   def show?
-    index?
-  end
-
-  def create?
-    index?
+    true
   end
 
   def update?
-    index?
+    user.has_role?(Role.where(label: ['System Admin', 'Expo Admin'])) or record == user
+  end
+
+  def create?
+    user.has_role?(Role.where(label: ['System Admin', 'Expo Admin']))
   end
 
   def destroy?
-    index?
+    create?
   end
 end
