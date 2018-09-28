@@ -17,7 +17,7 @@ class UserRolesController < ApplicationController
   def create
     @user_role = UserRole.create(user_role_params)
 
-    if @user_role = user_role.save
+    if @user_role.save
       redirect_to action: "index"
     else
       render 'new'
