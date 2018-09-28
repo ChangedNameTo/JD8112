@@ -12,21 +12,12 @@
 #  updated_at  :datetime         not null
 #
 
-class Project < ApplicationRecord
-  # Associations
-  has_many :project_members, dependent: :destroy
-  has_many :project_comments, dependent: :destroy
-  has_many :project_votes, dependent: :destroy
-
-  # Validations
-  validates :name,
-    presence: true,
-    uniqueness: true
-
-  validates :description,
-    presence: true
-
-  def project_name
-    "#{name}"
+FactoryBot.define do
+  factory :project do
+    name        {Faker::Name.first_name}
+    team        {Faker::Name.last_name}
+    description {Faker::TheITCrowd.quote}
+    client      {Faker::TheITCrowd.character}
+    repo_link   {Faker::Internet.url}
   end
 end

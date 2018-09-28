@@ -3,7 +3,7 @@
 # Table name: project_votes
 #
 #  id         :integer          not null, primary key
-#  voter_id   :integer          not null
+#  user_id    :integer          not null
 #  project_id :integer          not null
 #  yes        :boolean          not null
 #  created_at :datetime         not null

@@ -46,7 +46,7 @@ FactoryBot.define do
       end
     end
 
-    trait :member do
+    trait :team_member do
       after(:create) do |user|
         UserRole.create!(
           user: user,

@@ -1,0 +1,27 @@
+<%= form_for @project_comment, html: {class: 'ui form error'} do |f| %>
+
+<% if @project_comment.errors.any? %>
+	<div id="error_explanation">
+		<h2>
+			<%= pluralize(@project_comment.errors.count, "error") %> prohibited
+			this article from being saved:
+		</h2>
+		<ul>
+			<% @project_comment.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<%= f.hidden_field :project_id, value: @project_comment.project_id %>
+<%= f.hidden_field :user_id, value: @project_comment.user.id %>
+
+<div class="field">
+  <%= f.label :body %><br>
+  <%= f.text_area :body, class: 'form-control', required: true %>
+</div>
+
+<%= f.submit 'New Comment', :class => 'ui fluid primary button' %>
+
+<% end %>

@@ -1,0 +1,139 @@
+<%= render 'layouts/header' %>
+
+<div class="ui container segment">
+  <h1 class="ui center aligned header">
+    <%= @project.name %>
+  </h1>
+
+  <div class="ui horizontal divider">
+    Info
+  </div>
+
+  <div class="ui container segment">
+    <div class="ui internally celled grid">
+      <div class="row">
+        <div class="eight wide column">
+          <strong>Team:</strong> <%= @project.team || "Not Set" %>
+        </div>
+        <div class="eight wide column">
+          <strong>Client:</strong> <%= @project.client || "Not Set" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="sixteen wide column">
+          <strong>Repo Link:</strong> <%= @project.repo_link || "Not Set" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui horizontal divider">
+    Description
+  </div>
+  <div class="ui container segment">
+    <%= markdown( @project.description || "No Description Set" ) %>
+  </div>
+
+  <div class="ui horizontal divider">
+    Team Members
+  </div>
+  <div class="ui container segment">
+    <div class="ui middle aligned selection list">
+    <% if @members.count > 0 %>
+      <% @members.each do |member| %>
+        <div class="item">
+          <%= image_tag member.photo, class: "ui avatar image" %>
+          <div class="content">
+            <div class="header">
+              <%= member.full_name %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      There are currently no members attached to this project
+    <% end %>
+    </div>
+  </div>
+
+  <div class="ui horizontal divider">
+    Comments
+  </div>
+  <div class="ui feed">
+  <% if @project_comments.count > 0 %>
+
+    <% @project_comments.each do |project_comment| %>
+      <div class="event">
+        <div class="label">
+          <%= image_tag project_comment.author_image %>
+        </div>
+        <div class="content">
+          <div class="summary">
+            <%= project_comment.author_name%> commented
+            <div class="date">
+              <%= time_ago_in_words(project_comment.created_at) %> ago on <%= project_comment.post_date %>
+            </div>
+          </div>
+          <div class="ui segment">
+            <%= markdown(project_comment.body) %>
+              <% if current_user == project_comment.author %>
+              <div class="ui divider"></div>
+
+              <%= link_to edit_project_comment_path(project_comment), :class=>"ui green button" do %>
+                <i class="edit icon"></i>
+              <% end %>
+
+              <%= link_to project_comment_path(project_comment), method: :delete, :class=>"ui red button" do %>
+                <i class="remove icon"></i>
+              <% end %>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  <% else %>
+
+    <div class="ui container segment">
+      There are currently no comments
+    </div>
+
+  <% end %>
+  </div>
+
+  <div class="ui container segment">
+    <%= render 'project_comments/form' %>
+  </div>
+
+  <div class="ui horizontal divider">
+    Actions
+  </div>
+  <div class="ui equal width grid">
+  <div class="row">
+    <div class="column">
+    </div>
+  </div>
+    <% if policy(@project).update? %>
+      <div class="row">
+        <div class="column">
+          <%= link_to "New Project", new_project_path(), class: "ui green fluid button" %>
+        </div>
+        <div class="column">
+          <%= link_to "Edit Project", edit_project_path(@project), class: "ui primary fluid button" %>
+        </div>
+        <div class="column">
+          <%= link_to "Back to Overview", root_path(), class: "ui teal fluid button" %>
+        </div>
+      </div>
+    <% else %>
+      <div class="row">
+        <div class="column">
+          <%= link_to "Back to Overview", root_path(), class: "ui teal fluid button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'layouts/footer' %>
