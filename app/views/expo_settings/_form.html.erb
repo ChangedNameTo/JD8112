@@ -1,0 +1,40 @@
+<%= form_for @expo_settings, remote: true, html: {class: 'ui form error'} do |f| %>
+
+  <% if @expo_settings.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@expo_settings.errors.count, "error") %> prohibited
+        this meal time from being saved:
+      </h2>
+      <ul>
+        <% @expo_settings.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h3 class="ui aligned header">
+    <% if request.query_parameters.key?('message') %>
+      <%= request.query_parameters['message'] %>
+    <% end %>
+  </h3>
+  <div class="fields">
+
+    <div class="required eight wide field">
+      <%= f.label :voting_enabled %>
+      <%= f.select :voting_enabled, options_for_select([['Enabled', true], ['Disabled', false]], @expo_settings.voting_enabled) %>
+    </div>
+  </div>
+
+  <div class="ui equal width grid">
+    <div class="row">
+      <div class="column">
+        <%= f.submit 'Save', :class => 'ui green fluid button', data: {confirm: 'Submit changes to expo settings?'} %>
+      </div>
+      <div class="column">
+        <%= link_to "Cancel", root_path(), :class => "ui primary fluid button" %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

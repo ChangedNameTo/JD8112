@@ -1,4 +1,4 @@
-class UserRolePolicy < ApplicationPolicy
+class ExpoSettingsPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope
@@ -6,7 +6,7 @@ class UserRolePolicy < ApplicationPolicy
   end
 
   def index?
-    user.has_role?(Role.where(label: 'System Admin'))
+    user.has_role?(Role.where(label: ['System Admin', 'Expo Admin']))
   end
 
   def show?
@@ -18,7 +18,7 @@ class UserRolePolicy < ApplicationPolicy
   end
 
   def update?
-    user.has_role?(Role.where(label: ['System Admin', 'Expo Admin']))
+    index?
   end
 
   def destroy?
