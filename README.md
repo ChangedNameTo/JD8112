@@ -20,27 +20,33 @@ Postgres is the db backing for the project, fairly light and easy to use.
 
 Follow the instructions here: https://wiki.postgresql.org/wiki/Detailed_installation_guides
 
+Be sure to install the libraries and headers in the package `postgresql-server-dev-10`
+
+Important: Once installed, create a Postgres user with `'sudo -u postgres createuser -s your_user_name`
+
 * Verify rails is installed
 
 `rails --version`
 
 If this doesn't work do `gem install rails`
 
-* Add LiveReload
+* Add the LiveReload extension to Chrome
 
 LiveReload is a simple extension that reloads the browser window every time you make a change to the code. Makes changes much faster. Find it here: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en
 
 * Clone project
 
-* Build gems
+* Install Bundler with `gem install bundler`
 
-Bundler is a tool that bulk installs ruby gems. `bundle install`
+Bundler is a tool that bulk installs ruby gems. 
 
-* Start the server
+* Build gems with Bundler with `bundle install`
 
+* Create the database with `rails db:create`
 
+* Migrate the database with `rails db:migrate`
 
-Start the server with `rails s`
+* Start the server with `rails s`
 
 In another terminal start LiveReload with `bundle exec guard`
 
