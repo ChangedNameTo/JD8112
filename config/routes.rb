@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   # Projects
   resources :projects
   resources :project_comments
+
+  # Settings
+  resources :expo_settings
 end

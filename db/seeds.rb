@@ -6,3 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require File.expand_path('../seeds/roles', __FILE__)
+require File.expand_path('../seeds/expo_default_settings', __FILE__)
