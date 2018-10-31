@@ -24,7 +24,7 @@ describe User do
     end
   end
 
-    describe 'first name', field: :first_name do
+  describe 'first name', field: :first_name do
     it_behaves_like 'non null field'
   end
 

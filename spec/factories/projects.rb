@@ -14,6 +14,7 @@
 
 FactoryBot.define do
   factory :project do
+    id          {Faker::Number.number(4)}
     name        {Faker::Name.first_name}
     team        {Faker::Name.last_name}
     description {Faker::TheITCrowd.quote}

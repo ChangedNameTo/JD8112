@@ -19,13 +19,24 @@ class Project < ApplicationRecord
   has_many :project_votes, dependent: :destroy
 
   # Validations
-  validates :name,
-    presence: true,
-    uniqueness: true
+  validates :id, presence: true, uniqueness: :true,
+    length: { minimum: 4, maximum: 4 },
+    format: { with: /\d/i, message: "not a valid team id" }
+
+  validates :name, presence: true, uniqueness: true,
+    length: { minimum: 1 }
+
+  validates :team, presence: true
 
   validates :description,
-    presence: true
+    presence: true,
+    length: { maximum: 500 }
 
+  validates :repo_link,
+    format: { with: /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/i,
+              message: "not a valid URL" }
+
+  # Helpers
   def project_name
     "#{name}"
   end

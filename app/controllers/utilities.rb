@@ -14,7 +14,6 @@ def parse_csv(project_data)
     project_desc   = row[4]
     course_section = row[5]
     # TODO: create new project objects from parsed data
-    puts "#{team_number}, #{project_name}"
   end
 end
 
