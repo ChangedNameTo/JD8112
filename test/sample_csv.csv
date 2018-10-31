@@ -1,0 +1,121 @@
+Team Number ,Expo Session,Table #,Project Name ,Project Description,Course Section
+7106,"Session 1
+10 am - noon",14,Expo Voting App,A web application that allows expo visitors to vote on their favorite Junior Design project while attending the Junior Design Expo.,JIE
+7300,"Session 1
+10 am - noon",26,EULA Iconographic Team ,Our project is using a neural net to analyze end user licensing agreement to output icons for easier comprehension of the content.  ,JIB
+7302,"Session 1
+10 am - noon",19,roundtable,A web app for users to connect their existing music streaming accounts and edit/collaborate upon/share playlists from one place. ,JIA
+7304,"Session 1
+10 am - noon",17,W[rec]k Card,Our application is designed for Android and iOS. The purpose of the application is to optimize the time spent by baseball recruiters planning their day and searching for prospects. ,JIA
+7305,"Session 1
+10 am - noon",27,SAR,"Our project offers SAR operators management for Unmanned Aerial Vehicles, or UAVs, based missions through a simple, user-friendly interface.",JIA
+7306,"Session 1
+10 am - noon",16,Game of Gains,"Game of Gains is a competitive fitness app for Android and iOS in which users can engage in various exercises with their friends, complete challenges, and earn points to rise up on the leaderboard. ",JIB
+7311,"Session 1
+10 am - noon",5,The Good Word,Georgia Tech has an abundance of event information scattered across multiple sources. The Good Word is a mobile application that collects and consolidates information about Georgia Tech campus events into one friendly user interface. ,JIE
+7312,"Session 1
+10 am - noon",21,Alternative Slack App,We rewrote the Slack app for macOS using native APIs to allow for better performance.,JIB
+7313,"Session 1
+10 am - noon",28,The Heroes' Manual,The Heroes' Manual app is an electronic handbook that helps service providers manage cases of domestic violence in a more informed manner.,JIA
+7314,"Session 1
+10 am - noon",15,Tennis Champs,Developing an application to assist in the development and improvement of user's tennis skills.,JIA
+7317,"Session 1
+10 am - noon",12,Automated Turbulence and Flight Simulation,This application simulates the gathering of turbulence data from aircraft mid-flight and displays zones of turbulence relative to aircraft flight paths.,JIB
+7318,"Session 1
+10 am - noon",22,Sentimeter,Sentimeter is a web application that performs sentiment analysis on conversations between multiple speakers.,JIB
+7319,"Session 1
+10 am - noon",1,Meals Made Easy,Project Meals Made Easy will provide sustainable and flexible meal plans that meets users’ nutritional needs for a week at a time as well as a detailed grocery list for these meal plans.,JIB
+7323,"Session 1
+10 am - noon",2,FoodTrack,"FoodTrack is a recipe generating mobile application that targets users who suffer from hypertension, also known as high blood pressure.",JIE
+7332,"Session 1
+10 am - noon",10,GTNav,"An improvement upon the GT Buses Android application to implement walking time estimates, shortcuts, and construction warnings.",JIE
+7335,"Session 1
+10 am - noon",29,Mission Support,Mission Support is an application that will allow mission groups and medical organizations to share information.,JIE
+7338,"Session 1
+10 am - noon",20,Sheeeeets,A combined spreadsheet and database application that makes organization of any type of data easy,JIE
+7339,"Session 1
+10 am - noon",3,VetChain,Application to securely store veterinary pet records for clients.  Allows for easy retrieval and transfer of private records.,JIA
+7340,"Session 1
+10 am - noon",25,EULA Auto Analysis Tool,"A web application to automatically analyze a given EULA using a set of heuristics provided by the Responsible End-User Licensing Lab and provide feedback on visual, accessibility, and content qualities of the EULA.",JIB
+7341,"Session 1
+10 am - noon",6,CoS Inventory Management System,"Our team has created an Inventory Management System for use by the Georgia Tech College of Sciences. It is made for flexibility and longevity, allowing advanced users to define custom attributes and equipment types according to their needs.",JIE
+7346,"Session 1
+10 am - noon",18,PortfolioLife,"PortfolioLife is a photo management web service targeted at non-tech savvy users. It allows for uploading, tagging, and sharing of photos and photo albums.",JIE
+7347,"Session 1
+10 am - noon",23,Malware Lab,"Plugin framework for software and malware analysis through fuzzing, symbolic execution and tracking flow of execution.",JIE
+7349,"Session 1
+10 am - noon",24,Bite-Sized EULA,"Out Google Chrome Extension reminds users of web applications about the terms and conditions associated with respective actions in the web application. For example, if a user tries to post an image on Facebook, our extension reminds them that this image can be viewed by everyone else who registers with Facebook.",JIA
+7351,"Session 1
+10 am - noon",30,ETL Process Redesign,"The Centers for Disease Control and Prevention maintains an integrated information system called the National Electronic Disease Surveillance System. Our task is to aid the CDC in researching, designing, and implementing a new data transformation process using open source software for the backend data system of this application.",JIE
+7352,"Session 1
+10 am - noon",7,Invention Studio Application,The Invention Studio at Georgia Tech currently only has a set of kiosks in the Studio itself where users sign in to their desired machine. Our team believes that a mobile application for both iOS and Android can provide a more friendly and accessible platform for users to view necessary information about the Studio and be notified of when it is their turn to use the equipment.  ,JIB
+7353,"Session 1
+10 am - noon",13,Ramblin Treks,A mobile app that merges Google maps and Georgia Tech buses to find the fastest route from one place on campus to another.,JIA
+7354,"Session 1
+10 am - noon",8,Turn Down for Watt,"We are making a web application to supplement a competition called Turn Down for Watt, hosted by Energy Jackets. This competition is to see which freshmen dorms save the most energy and our website will display realtime data respectively per floor  as well as allow users to compare any floor's energy conservation. ",JIA
+7355,"Session 1
+10 am - noon",11,HopOn!,"We are making a travel planning app that allows users to create trips, make itineraries, and chat with each other.",JIB
+7357,"Session 1
+10 am - noon",4,Pawgistics,Pawgistics is a service dog tracking and management system. ,JIB
+7358,"Session 1
+10 am - noon",9,Study Buddy,StudyBuddy is a mobile application that serves as a tool for college students to “match” themselves (the “swipe-to-match” implementation) with study partners for the purpose of improving their academic performance and establishing relationships with others on campus.,JIA
+7101,"Session 2
+1 pm - 3 pm",18,Thracker,"Thracker is a web application that organizes theater inventory items, such as costumes and props, into a centralized, accessible, and searchable platform.",JIF
+7135,"Session 2
+1 pm - 3 pm",20,Schedit,Schedit is an web application that automatically creates schedules based on a number of user preferences. It takes the grunt work out of figuring out which classes a Georgia Tech student will take in a given semester.,JID
+7201,"Session 2
+1 pm - 3 pm",5,Interactive Sessions for GT-COP,"We are increasing the collaborative value of the existing GT-COP platform by allowing users to draw lines, draw shapes, and drop custom markers on map layers that can be shared with and edited by other users.",JIC
+7202,"Session 2
+1 pm - 3 pm",1,My Food Journal,"Our app is used to personally document different menu items, reviews, and restaurants for later use. These opinions can be shared with friends on the platform, but are mostly for personal record.",JID
+7301,"Session 2
+1 pm - 3 pm",12,Jacob's Ladder Digitization,We are creating a web application that records the progress of students through activities and replaces components of their current paper based system. ,JID
+7303,"Session 2
+1 pm - 3 pm",28,PDAssist,PDAssist aims to vastly improve a patient's ability to make informed decisions by using catered medical information.,JIC
+7307,"Session 2
+1 pm - 3 pm",6,GT Campus Navigation,"GT Campus Navigation is an Android application that will optimize commute times across campus for student pedestrians, bike-riders and bus-goers. The application will provide users with directions and travel time estimations based on their preferred mode of campus transportation.",JIC
+7309,"Session 2
+1 pm - 3 pm",2,MenuFi,"MenuFi is an Android application that aims to solve the issues of inaccessible dietary information to patrons of restaurants, the lack of proper data, and the lack of feedback to restaurant businesses.",JIC
+7315,"Session 2
+1 pm - 3 pm",7,Georgia Tech Financial Aid App,A one-stop shop for Georgia Tech students for all your financial aid needs!,JIF
+7316,"Session 2
+1 pm - 3 pm",14,Volunteer Quest,"Simple, effective location based searching for volunteer opportunities in the Atlanta metro area.",JIF
+7320,"Session 2
+1 pm - 3 pm",23,SubmitFlow,"SubmitFlow supports publications in collecting and curating public contributions. The product provides a web-based portal for collaborative review workflows, allowing staff to come together and select the best submissions for their publication effectively and efficiently.",JID
+7321,"Session 2
+1 pm - 3 pm",21,Bestseller Archive,A crowd sourcing web app for storing and searching through an archive of bestseller lists.,JIC
+7322,"Session 2
+1 pm - 3 pm",4,Proctor Creek Greenway App,The Proctor Creek Greenway App is an interactive mobile application that allows locals and history enthusiasts to gain knowledge of the history of the Proctor Creek area.,JID
+7324,"Session 2
+1 pm - 3 pm",13,Accessibility Materials System,Our team is building this product for the Georgia Instructional Materials Center (GIMC) at the Department of Education (DOE) to streamline and improve the process in which patrons such as teachers and school administrators can request accessible materials for visually impaired and disabled students.,JIC
+7325,"Session 2
+1 pm - 3 pm",10,Augmented Rock Climbing,"Augmented Rock Climbing (ARC) is an interactive rock climbing experience that provides climbers of all skill levels an entertaining game that meshes technology with sport. By using the Microsoft Kinect to track the user's motions as they are on the climbing wall, we integrate Kinect sensor readings with the Brickbreaker-style game projected onto the wall, allowing for a immersive game experience!",JIF
+7326,"Session 2
+1 pm - 3 pm",24,Family Friendly Brewery Tracker,The Family Friendly Brewery Tracker is a Yelp-like mobile application aimed at helping people find family-friendly breweries. The application allows users to view and review breweries based on family-friendly criteria.,JID
+7327,"Session 2
+1 pm - 3 pm",30,Health It Forward,A health-based forum where patients with Parkinson's Disease can interact with one another as well as medical professionals.,JIC
+7328,"Session 2
+1 pm - 3 pm",25,AugMu,AugMu is an Android application that augments the museum experience by extending exhibits into virtual space. ,JIF
+7329,"Session 2
+1 pm - 3 pm",22,Writer's Bloc,"Our project is a web application where writers can enter data metrics regarding various writing projects and documents that they are working on. The application not only keeps track of this data, but also displays useful information back to the user in the form of graphs and other visualizations.",JIF
+7333,"Session 2
+1 pm - 3 pm",29,CDC User Management Redesign,Redesigning the UI of the User Management section of NBS and adding more functionality to certain pages,JIC
+7334,"Session 2
+1 pm - 3 pm",9,The Archaic Tower,"Virtual Reality spell casting game, using spells crafted by the player in game.",JIF
+7337,"Session 2
+1 pm - 3 pm",19,Social Contract,"An application designed to allow users to grow their social media accounts. Users request interactions (likes, follows, etc...) from other users using an in-app currency which they can earn by interacting with content from other users' requests.",JIC
+7342,"Session 2
+1 pm - 3 pm",15,Ivan Allen Digital Archive User Interface,We are revitalizing the Ivan Allen digital archive to have a more intuitive and feature rich user experience. The focus of the feature enhancements is to enable discovering connections between documents by displaying them in a configurable graph.,JID
+7343,"Session 2
+1 pm - 3 pm",26,Hanstuff,"Hanstuff is a Korean language learning website for users to learn Korean based on their learning level (Beginner, Intermediate and Advanced). Hanstuff provides lessons, information about Korean culture, and an online store.",JID
+7344,"Session 2
+1 pm - 3 pm",3,Sustainability Lifestyle Scorecard,"Sustainability Lifestyle Scorecard is an Android application that can be used to track not just health such as steps and calorie intake, but also other assets of daily lifestyle such as daily energy and water consumption and commute.  Even though this app cannot prevent environmental degradation or promise higher quality of life, the outcome of the app will be a more educated front of people combatting the downward progression of the environment and Earth’s atmosphere.",JIC
+7345,"Session 2
+1 pm - 3 pm",27,Airport Navigation,Our app enables provides users with directions and time estimates to reach their gate as well as explore all the other shops and services available at an airport. We believe this will make airports both easier and more enjoyable for for all flyers.,JIF
+7348,"Session 2
+1 pm - 3 pm",8,GT ThriftShop,GT ThriftShop is an online marketplace for connecting students for the purpose of buying and selling second hand goods.,JID
+7350,"Session 2
+1 pm - 3 pm",16,Jacket Tracker,This is an application that helps the GT band Uniform Lieutenants to manage the band uniform pieces easily and more efficiently,JIF
+7356,"Session 2
+1 pm - 3 pm",11,Interactive Word Find Game,An interactive word find with text to speech functionality.,JID
+7359,"Session 2
+1 pm - 3 pm",17,Jacket,"Jacket is a web app for the College of Computing Career Fair. It provides you with information about the companies attending, and allows you to use your time more efficiently by waiting in companies' virtual lines instead of physical lines.",JIF
