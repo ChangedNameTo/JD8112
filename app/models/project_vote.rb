@@ -12,18 +12,19 @@
 
 class ProjectVote < ApplicationRecord
   # Associations
-  belongs_to :user
-  belongs_to :project
+  belongs_to :user, class_name: User, foreign_key: 'user_id'
+  belongs_to :project, class_name: Project, foreign_key: 'project_id'
 
   # Validations
-  validates :voter_id,
+  validates :user_id,
     presence: true
 
-  validates :role_id,
+  validates :project_id,
     presence: true
 
   validates :yes,
     presence: true
+
   # Helpers
   def full_name
     User.find(self.voter_id).full_name
