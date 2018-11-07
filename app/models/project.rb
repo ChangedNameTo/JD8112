@@ -42,7 +42,8 @@ class Project < ApplicationRecord
       Project.create!(id: team_number,
                       name: project_name,
                       description: project_desc,
-                      client: "Buzz Aldrin",
+                      client: "Bob Waters",
+                      team: "team",
                       repo_link: "www.github.com")
     end
   end
