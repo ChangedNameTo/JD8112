@@ -12,19 +12,22 @@
 
 class ProjectComment < ApplicationRecord
   # Associations
-  belongs_to :user
-  belongs_to :project
+  belongs_to :user, class_name: User, foreign_key: 'user_id'
+  belongs_to :project, class_name: Project, foreign_key: 'project_id'
 
   # Validations
-  validates :author_id,
+  validates :user_id,
     presence: true
 
   validates :project_id,
     presence: true
 
+  validates :body,
+    presence: true
+
   # Helpers
   def full_name
-    User.find(self.author_id).full_name
+    User.find(self.user_id).full_name
   end
 
   def project_name

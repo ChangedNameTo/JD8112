@@ -9,5 +9,4 @@
 #
 
 class ExpoSettings < ApplicationRecord
-
 end
