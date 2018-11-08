@@ -8,11 +8,11 @@ describe Project do
 
   describe "batch import projects via csv" do
     it "successfully reads and adds test projects to the db" do
-      Project.import_csv("./test/sample_csv_small.csv")
-      expect(Project.first.id).to eq 7106
-      expect(Project.first.name).to eq "Expo Voting App"
-      expect(Project.second.id).to eq 7300
-      expect(Project.second.name).to eq "EULA Iconographic Team "
+      Project.import_csv("./test/sample_csv.csv")
+      expect(Project.first.id).to eq 7101
+      expect(Project.first.name).to eq "Thracker"
+      expect(Project.last.id).to eq 7359
+      expect(Project.last.name).to eq "Jacket"
     end
   end
 end
