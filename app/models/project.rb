@@ -11,7 +11,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-
+require 'csv'
 class Project < ApplicationRecord
   # Associations
   has_many :project_members, dependent: :destroy
@@ -28,5 +28,24 @@ class Project < ApplicationRecord
 
   def project_name
     "#{name}"
+  end
+
+  def self.import_csv(file)
+    CSV.foreach(file, quote_char: '"', col_sep: ',', row_sep: :auto, headers: true) do |row|
+      team_number    = row[0]
+      expo_session   = row[1]
+      table_number   = row[2]
+      project_name   = row[3]
+      project_desc   = row[4]
+      course_section = row[5]
+
+      Project.create!(id:           team_number,
+                      name:         project_name,
+                      description:  project_desc,
+                      client:       "Bob Waters",
+                      team:         "team",
+                      repo_link:    "www.github.com")
+
+    end
   end
 end
