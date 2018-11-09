@@ -19,7 +19,9 @@
           <% end %>
         </div>
       </div>
-      <%= link_to "Bookmarks", bookmarks_path, class:"item" %>
+      <% if policy(:user_role).bookmark? %>
+        <%= link_to "Bookmarks", bookmarks_path, class:"item" %>
+      <% end %>
     <% end %>
   </div>
   <% if current_user %>

@@ -109,28 +109,30 @@
   <div class="ui horizontal divider">
     Actions
   </div>
-  <h2 class="ui center aligned header">Bookmark
-    <% if policy(@project).bookmark? %>
+
+  <% if policy(@project).bookmark? %>
+    <h2 class="ui center aligned header">Bookmark
       <%= link_to bookmarkIcon(@project, current_user), bookmarks_bookmark_path(@project, :user_id => current_user, :project_id => @project), method: :post, :remote => true %>
-    <% end %>
-    <% if policy(@project).update? %>
-  </h2>
+    </h2>
+  <% end %>
+
   <div class="ui equal width grid">
   <div class="row">
     <div class="column">
     </div>
   </div>
-    <div class="row">
-      <div class="column">
-        <%= link_to "New Project", new_project_path(), class: "ui green fluid button" %>
+    <% if policy(@project).update? %>
+      <div class="row">
+        <div class="column">
+          <%= link_to "New Project", new_project_path(), class: "ui green fluid button" %>
+        </div>
+        <div class="column">
+          <%= link_to "Edit Project", edit_project_path(@project), class: "ui primary fluid button" %>
+        </div>
+        <div class="column">
+          <%= link_to "Back to Overview", root_path(), class: "ui teal fluid button" %>
+        </div>
       </div>
-      <div class="column">
-        <%= link_to "Edit Project", edit_project_path(@project), class: "ui primary fluid button" %>
-      </div>
-      <div class="column">
-        <%= link_to "Back to Overview", root_path(), class: "ui teal fluid button" %>
-      </div>
-    </div>
     <% else %>
       <div class="row">
         <div class="column">
@@ -138,7 +140,6 @@
         </div>
       </div>
     <% end %>
-
   </div>
 </div>
 

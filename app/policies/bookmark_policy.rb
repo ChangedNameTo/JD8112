@@ -6,7 +6,7 @@ class BookmarkPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    !user.has_role?(Role.where(label: ['System Admin', 'Expo Admin', 'Team Member']))
   end
 
   def show?

@@ -22,6 +22,6 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def bookmark?
-    true
+    !user.has_role?(Role.where(label: ['System Admin', 'Expo Admin', 'Team Member']))
   end
 end
