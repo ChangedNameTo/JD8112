@@ -4,12 +4,18 @@
     <tr>
       <th align="center">Team</th>
       <th align="center">Project Name</th>
+      <% if policy(:user_role).update? %>
+        <th align="center">Votes</th>
+      <% end %>
       <th align="center">Actions</th>
     <% if @projects && @projects.count != 0 %>
       <% @projects.each do |project| %>
       <tr>
         <td style="text-align:center;"><%= project.team %></td>
         <td style="text-align:center;"><%= project.name %></td>
+        <% if policy(:user_role).update? %>
+          <td style="text-align:center;"><%= project.vote_count %></td>
+        <% end %>
         <td style="text-align:center;">
           <%= link_to "Show", project_path(project), :class => "ui primary small button" %>
           <% if policy(project).update? %>
