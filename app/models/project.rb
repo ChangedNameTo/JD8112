@@ -11,6 +11,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+
 require 'csv'
 class Project < ApplicationRecord
   # Associations
@@ -29,6 +30,10 @@ class Project < ApplicationRecord
 
   def project_name
     "#{name}"
+  end
+
+  def vote_count
+    project_votes.where(project_id: self.id).where(yes: true).count
   end
 
   def self.import_csv(file)
