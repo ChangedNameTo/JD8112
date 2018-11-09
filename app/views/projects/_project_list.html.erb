@@ -2,7 +2,7 @@
   <tr>
     <th align="center">Team</th>
     <th align="center">Project Name</th>
-    <% if policy(:project).index? %>
+    <% if policy(:project).view_votes? %>
       <th align="center">Votes</th>
     <% end %>
     <th align="center">Actions</th>
@@ -15,7 +15,7 @@
       <tr>
         <td style="text-align:center;"><%= project.team %></td>
         <td style="text-align:center;"><%= project.name %></td>
-        <% if policy(:project).index? %>
+        <% if policy(:project).view_votes? %>
           <td style="text-align:center;"><%= project.vote_count %></td>
         <% end %>
         <td style="text-align:center;">
