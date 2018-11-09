@@ -17,6 +17,7 @@ class Project < ApplicationRecord
   has_many :project_members, dependent: :destroy
   has_many :project_comments, dependent: :destroy
   has_many :project_votes, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   # Validations
   validates :name,

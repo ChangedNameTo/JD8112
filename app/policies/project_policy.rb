@@ -20,4 +20,8 @@ class ProjectPolicy < ApplicationPolicy
   def destroy?
     create?
   end
+
+  def bookmark?
+    true
+  end
 end

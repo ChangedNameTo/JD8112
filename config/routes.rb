@@ -26,4 +26,9 @@ Rails.application.routes.draw do
 
   # Settings
   resources :expo_settings
+
+  # Bookmarks
+  resources :bookmarks
+  post 'projects/:id/bookmark/', to: 'bookmarks#bookmark', as: :bookmarks_bookmark, format: false
+
 end
