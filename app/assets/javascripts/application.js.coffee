@@ -56,4 +56,11 @@ $(document).on('turbolinks:load', ->
            target.dropdown('clear')
          )
   )
+
+  $('a.bookmark').on('ajax:success', (event, data) ->
+    icon = $(this).find('i')
+    if icon && data.style
+      icon.attr('class', data.style)
+  )
+
 )

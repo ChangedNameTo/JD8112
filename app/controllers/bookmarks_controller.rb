@@ -9,6 +9,15 @@ class BookmarksController < ApplicationController
     if Bookmark.where(bookmark_params).destroy_all.empty?
       @bookmark = Bookmark.create(bookmark_params)
       @bookmark.save
+      respond_to do |format|
+        format.html {redirect_to :back}
+        format.json { render json: {style: 'yellow star icon'} }
+      end
+    else
+      respond_to do |format|
+        format.html {redirect_to :back}
+        format.json { render json: {style: 'yellow star outline icon'} }
+      end
     end
   end
 
