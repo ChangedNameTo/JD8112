@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   resources :projects
   resources :project_comments
 
+  # Project Votes
+  resources :project_votes
+
   # Settings
   resources :expo_settings
 

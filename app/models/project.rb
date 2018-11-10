@@ -36,6 +36,10 @@ class Project < ApplicationRecord
     project_votes.where(project_id: self.id).where(yes: true).count
   end
 
+  def voted_by
+    votes_for_project = project_votes.where(project_id: self.id).where(yes: true).pluck(:user_id)
+  end
+
   def self.import_csv(file)
     CSV.foreach(file, quote_char: '"', col_sep: ',', row_sep: :auto, headers: true) do |row|
       team_number    = row[0]

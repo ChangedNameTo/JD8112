@@ -29,4 +29,7 @@ class UserRolePolicy < ApplicationPolicy
     !user.has_role?(Role.where(label: ['System Admin', 'Expo Admin', 'Team Member']))
   end
 
+  def vote?
+    !user.has_role?(Role.where(label: ['System Admin', 'Expo Admin', 'Team Member']))
+  end
 end
