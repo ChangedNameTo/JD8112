@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 5) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_bookmarks_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
+  end
 
   create_table "expo_settings", force: :cascade do |t|
     t.boolean  "voting_enabled", default: false
@@ -92,6 +101,8 @@ ActiveRecord::Schema.define(version: 4) do
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
   end
 
+  add_foreign_key "bookmarks", "projects", name: "fk_bookmark_project"
+  add_foreign_key "bookmarks", "users", name: "fk_bookmark_user"
   add_foreign_key "project_comments", "projects", name: "fk_project_comment_project"
   add_foreign_key "project_comments", "users", name: "fk_project_comment_user"
   add_foreign_key "project_members", "projects", name: "fk_project_member_project"

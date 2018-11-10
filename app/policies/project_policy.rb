@@ -20,4 +20,8 @@ class ProjectPolicy < ApplicationPolicy
   def destroy?
     create?
   end
+
+  def bookmark?
+    !user.has_role?(Role.where(label: ['System Admin', 'Expo Admin', 'Team Member']))
+  end
 end

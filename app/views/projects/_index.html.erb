@@ -1,46 +1,9 @@
 <div class="ui container segment">
   <h2 class="ui center aligned header">Projects</h2>
-  <table class="ui celled very compact striped table">
-    <tr>
-      <th align="center">Team</th>
-      <th align="center">Project Name</th>
-      <% if policy(:user_role).update? %>
-        <th align="center">Votes</th>
-      <% end %>
-      <th align="center">Actions</th>
-    <% if @projects && @projects.count != 0 %>
-      <% @projects.each do |project| %>
-      <tr>
-        <td style="text-align:center;"><%= project.team %></td>
-        <td style="text-align:center;"><%= project.name %></td>
-        <% if policy(:user_role).update? %>
-          <td style="text-align:center;"><%= project.vote_count %></td>
-        <% end %>
-        <td style="text-align:center;">
-          <%= link_to "Show", project_path(project), :class => "ui primary small button" %>
-          <% if policy(project).update? %>
-            <%= link_to "Edit", edit_project_path(project), :class => "ui green small button" %>
-          <% end %>
-          <% if policy(project).destroy? %>
-            <%= link_to "Delete", project_path(project), method: :delete, :class => "ui red small button", data: { confirm: 'Delete team?' } %>
-          <% end %>
-        </td>
-      </tr>
-      <% end %>
-    <% else %>
-      <tr>
-        <td colspan="3" style="text-align:center;">
-          <div class="ui fluid white label">
-            No current projects
-          </div>
-        </td>
-      </tr>
-    <% end %>
-    </tr>
-  </table>
+  <%= render 'projects/project_list' %>
   <% if policy(:project).create? %>
     <div class="ui row">
-      <%= link_to 'Add a New Project', new_project_path(), :class => "ui primary fluid button" %>
+      <%= link_to 'Add a New Project', new_project_path, :class => "ui primary fluid button" %>
     </div>
   <% end %>
 </div>

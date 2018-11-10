@@ -109,6 +109,13 @@
   <div class="ui horizontal divider">
     Actions
   </div>
+
+  <% if policy(@project).bookmark? %>
+    <h2 class="ui center aligned header">Bookmark
+      <%= link_to bookmarkIcon(@project, current_user), bookmarks_bookmark_path(@project, :user_id => current_user, :project_id => @project), method: :post, :remote => true %>
+    </h2>
+  <% end %>
+
   <div class="ui equal width grid">
   <div class="row">
     <div class="column">
