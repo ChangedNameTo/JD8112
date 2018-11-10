@@ -24,4 +24,8 @@ class UserRolePolicy < ApplicationPolicy
   def destroy?
     index?
   end
+
+  def vote?
+    !user.has_role?(Role.where(label: ['System Admin', 'Expo Admin', 'Team Member']))
+  end
 end
