@@ -26,11 +26,19 @@ class ProjectComment < ApplicationRecord
     presence: true
 
   # Helpers
-  def full_name
+  def author_name
     User.find(self.user_id).full_name
   end
 
   def project_name
     Project.find(self.project_id).name
+  end
+
+  def author_image
+    User.find(self.user_id).image
+  end
+
+  def post_date
+    created_at.strftime("%m/%d/%Y")
   end
 end
