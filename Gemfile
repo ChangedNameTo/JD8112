@@ -50,6 +50,10 @@ gem 'jbuilder', '~> 2.5'
 # Travis yaml linting
 gem 'travis'
 
+# PDF Reporting Gem
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

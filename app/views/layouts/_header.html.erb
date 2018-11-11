@@ -19,7 +19,7 @@
           <% end %>
         </div>
       </div>
-      <% if policy(:user_role).bookmark? %>
+      <% if policy(:project).bookmark? %>
         <%= link_to "Bookmarks", bookmarks_path, class:"item" %>
       <% end %>
     <% end %>

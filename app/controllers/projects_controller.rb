@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authorize_action,
-    only: [:index, :show, :new, :create]
+    only: [:index, :show, :new, :create, :voting_pdf]
 
   def new
     @project = Project.new
@@ -53,6 +53,19 @@ class ProjectsController < ApplicationController
     @project.delete
 
     redirect_to :back
+  end
+
+  def voting_pdf
+    @projects = Project.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Project Voting Report",
+        template: "pdfs/project_voting.html.erb",
+        layout: "pdf.html",
+        page_size: "Letter"
+      end
+    end
   end
 
   private

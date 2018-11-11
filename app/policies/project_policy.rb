@@ -9,6 +9,10 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
+  def index?
+    true
+  end
+
   def update?
     user.has_role?(Role.where(label: ['System Admin', 'Expo Admin'])) or record == user
   end
@@ -23,5 +27,13 @@ class ProjectPolicy < ApplicationPolicy
 
   def bookmark?
     !user.has_role?(Role.where(label: ['System Admin', 'Expo Admin', 'Team Member']))
+  end
+
+  def vote?
+    !user.has_role?(Role.where(label: ['System Admin', 'Expo Admin', 'Team Member']))
+  end
+
+  def voting_pdf?
+    true
   end
 end

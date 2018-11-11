@@ -2,19 +2,20 @@
   <tr>
     <th align="center">Team</th>
     <th align="center">Project Name</th>
-    <% if policy(:user_role).update? %>
+    <% if policy(:project).index? %>
       <th align="center">Votes</th>
     <% end %>
     <th align="center">Actions</th>
-    <% if policy(:user_role).vote? %>
+    <% if policy(:project).vote? %>
       <th align="center">Vote</th>
     <% end %>
+  </tr>
     <% if @projects && @projects.count != 0 %>
       <% @projects.each do |project| %>
       <tr>
         <td style="text-align:center;"><%= project.team %></td>
         <td style="text-align:center;"><%= project.name %></td>
-        <% if policy(:user_role).update? %>
+        <% if policy(:project).index? %>
           <td style="text-align:center;"><%= project.vote_count %></td>
         <% end %>
         <td style="text-align:center;">
@@ -29,7 +30,7 @@
             <%= link_to "Delete", project_path(project), method: :delete, :class => "ui red small button", data: { confirm: 'Delete team?' } %>
           <% end %>
         </td>
-        <% if policy(:user_role).vote? %>
+        <% if policy(:project).vote? %>
           <td style="text-align:center;">
             <% if project.voted_by.include?(current_user.id) %>
               <i class="checkmark box icon large color: blue"></i>
@@ -58,3 +59,6 @@
   <% end %>
   </tr>
 </table>
+<div>
+  <%= link_to "Create Voting Report", project_voting_pdf_path(@projects, :format => :pdf), :class => "ui fluid button" %>
+</div>
