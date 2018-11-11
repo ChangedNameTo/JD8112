@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   resources :user_roles
 
   # Projects
-  resources :projects
+  resources :projects do
+    get :voting_pdf
+  end
   resources :project_comments
 
   # Project Votes

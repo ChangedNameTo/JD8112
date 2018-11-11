@@ -24,12 +24,4 @@ class UserRolePolicy < ApplicationPolicy
   def destroy?
     index?
   end
-
-  def bookmark?
-    !user.has_role?(Role.where(label: ['System Admin', 'Expo Admin', 'Team Member']))
-  end
-
-  def vote?
-    !user.has_role?(Role.where(label: ['System Admin', 'Expo Admin', 'Team Member']))
-  end
 end
