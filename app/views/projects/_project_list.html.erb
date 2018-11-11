@@ -6,6 +6,9 @@
       <th align="center">Votes</th>
     <% end %>
     <th align="center">Actions</th>
+    <% if policy(:user_role).vote? %>
+      <th align="center">Vote</th>
+    <% end %>
     <% if @projects && @projects.count != 0 %>
       <% @projects.each do |project| %>
       <tr>
@@ -26,6 +29,22 @@
             <%= link_to "Delete", project_path(project), method: :delete, :class => "ui red small button", data: { confirm: 'Delete team?' } %>
           <% end %>
         </td>
+        <% if policy(:user_role).vote? %>
+          <td style="text-align:center;">
+            <% if project.voted_by.include?(current_user.id) %>
+              <i class="checkmark box icon large color: blue"></i>
+            <% else %>
+              <%= button_to '+1',
+                project_votes_path(
+                  project,
+                  :project_id => project.id,
+                  :user_id => current_user.id,
+                  :yes => 1),
+                method: :post,
+                :class => "ui primary small button" %>
+            <% end %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   <% else %>

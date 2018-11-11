@@ -6,21 +6,28 @@ class ProjectVotesController < ApplicationController
   end
 
   def index
-    @project_votes = ProjectVote.all.order(voter_id: :asc)
+    @project_votes = ProjectVote.all.order(user_id: :asc)
   end
 
   def show
-    @user = ProjectVote.find(params[:id])
+    @project_vote = ProjectVote.find(params[:id])
   end
 
   def create
-    @project_vote = ProjectVote.create(project_vote_params)
-
-    if @project_vote.save
-      redirect_to action: "index"
+    # If user has already voted, then update this vote with
+    # the new project id. Else, create a new vote.
+    if ProjectVote.where(user_id: (params[:user_id])).any?()
+      update
     else
-      render 'new'
+      @project_vote = ProjectVote.create(project_vote_params)
+      redirect_to :controller => 'home', :action => "logged_in"
     end
+  end
+
+  def update
+    @project_vote = ProjectVote.where(user_id: params[:user_id]).limit(1)
+    @project_vote.update(project_id: params[:project_id], yes: params[:yes])
+    redirect_to :controller => 'home', :action => "logged_in"
   end
 
   def destroy
@@ -40,8 +47,8 @@ class ProjectVotesController < ApplicationController
   end
 
   def project_vote_params
-    params.require(:project_vote).permit(
-      :voter_id,
+    params.permit(
+      :user_id,
       :project_id,
       :yes
     )
