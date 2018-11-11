@@ -59,6 +59,14 @@
   <% end %>
   </tr>
 </table>
+<% if policy(:project).view_votes? %>
 <div>
   <%= link_to "Create Voting Report", project_voting_pdf_path(@projects, :format => :pdf), :class => "ui fluid button" %>
 </div>
+<% end %>
+</br>
+<% if policy(:project).create? %>
+  <div class="ui row">
+    <%= link_to 'Add a New Project', new_project_path, :class => "ui primary fluid button" %>
+  </div>
+<% end %>
