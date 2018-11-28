@@ -52,7 +52,7 @@ class Project < ApplicationRecord
       Project.create!(id:           team_number,
                       name:         project_name,
                       description:  project_desc,
-                      client:       "Bob Waters",
+                      client:       "client",
                       team:         "team",
                       repo_link:    "www.github.com")
 

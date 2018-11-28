@@ -92,4 +92,9 @@ class ProjectsController < ApplicationController
       :body
     )
   end
+
+  def import
+    Project.import(params[:file])
+    redirect_to root_url, notice: "Data imported"
+  end
 end
