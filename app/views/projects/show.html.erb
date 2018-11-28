@@ -76,7 +76,7 @@
           </div>
           <div class="ui segment">
             <%= markdown(project_comment.body) %>
-              <% if current_user == project_comment.author %>
+              <% if current_user == project_comment.user %>
               <div class="ui divider"></div>
 
               <%= link_to edit_project_comment_path(project_comment), :class=>"ui green button" do %>

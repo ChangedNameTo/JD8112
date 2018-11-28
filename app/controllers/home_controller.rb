@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  include ExpoSettingsHelper
   def logged_in
     skip_authorization
 
@@ -7,6 +8,7 @@ class HomeController < ApplicationController
     end
 
     @projects = Project.all.order(id: :asc)
+    @voting_enabled = isVotingEnabled?
   end
 
   def logged_out

@@ -1,8 +1,10 @@
 class BookmarksController < ApplicationController
   before_action :authorize_action
+  include ExpoSettingsHelper
 
   def index
     @projects = Project.joins(:bookmarks).where(bookmarks: {user_id: session[:user_id]})
+    @voting_enabled = isVotingEnabled?
   end
 
   def bookmark

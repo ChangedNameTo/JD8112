@@ -25,6 +25,10 @@ class ProjectPolicy < ApplicationPolicy
     create?
   end
 
+  def view_votes?
+    user.has_role?(Role.where(label: ['System Admin', 'Expo Admin']))
+  end
+
   def bookmark?
     !user.has_role?(Role.where(label: ['System Admin', 'Expo Admin', 'Team Member']))
   end

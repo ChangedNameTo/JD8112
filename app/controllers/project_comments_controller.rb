@@ -15,9 +15,9 @@ class ProjectCommentsController < ApplicationController
     @project_comment = ProjectComment.create(project_comment_params)
 
     if @project_comment.save
-      redirect_to action: "index"
+      redirect_to project_path(@project_comment.project)
     else
-      render 'new'
+      render 'projects/index'
     end
   end
 
@@ -39,7 +39,7 @@ class ProjectCommentsController < ApplicationController
 
   def project_comment_params
     params.require(:project_comment).permit(
-      :author_id,
+      :user_id,
       :project_id,
       :body
     )

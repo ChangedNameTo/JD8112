@@ -1,12 +1,15 @@
+<% if !@voting_enabled %>
+  <h3 class="ui red center aligned header">Voting Disabled</h3>
+<% end %>
 <table class="ui celled very compact striped table">
   <tr>
     <th align="center">Team</th>
     <th align="center">Project Name</th>
-    <% if policy(:project).index? %>
+    <% if policy(:project).view_votes? %>
       <th align="center">Votes</th>
     <% end %>
     <th align="center">Actions</th>
-    <% if policy(:project).vote? %>
+    <% @voting_enabled && if policy(:project).vote? %>
       <th align="center">Vote</th>
     <% end %>
   </tr>
@@ -15,7 +18,7 @@
       <tr>
         <td style="text-align:center;"><%= project.team %></td>
         <td style="text-align:center;"><%= project.name %></td>
-        <% if policy(:project).index? %>
+        <% if policy(:project).view_votes? %>
           <td style="text-align:center;"><%= project.vote_count %></td>
         <% end %>
         <td style="text-align:center;">
@@ -30,7 +33,7 @@
             <%= link_to "Delete", project_path(project), method: :delete, :class => "ui red small button", data: { confirm: 'Delete team?' } %>
           <% end %>
         </td>
-        <% if policy(:project).vote? %>
+        <% if @voting_enabled && policy(:project).vote? %>
           <td style="text-align:center;">
             <% if project.voted_by.include?(current_user.id) %>
               <i class="checkmark box icon large color: blue"></i>
@@ -59,6 +62,14 @@
   <% end %>
   </tr>
 </table>
+<% if policy(:project).view_votes? %>
 <div>
   <%= link_to "Create Voting Report", project_voting_pdf_path(@projects, :format => :pdf), :class => "ui fluid button" %>
 </div>
+<% end %>
+</br>
+<% if policy(:project).create? %>
+  <div class="ui row">
+    <%= link_to 'Add a New Project', new_project_path, :class => "ui primary fluid button" %>
+  </div>
+<% end %>
