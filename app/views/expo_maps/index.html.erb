@@ -1,0 +1,17 @@
+<%= render 'layouts/header' %>
+  <% if @expo_map && @expo_map.image %>
+    <p style="overflow-x: auto">
+      <%= image_tag @expo_map.image %>
+    </p>
+  <% if policy(:user_role).update? %>
+      <%= link_to 'Change Expo Map', edit_expo_map_path(@expo_map), :class => "ui primary fluid button" %>
+  <% end %>
+  <% else %>
+    <% if policy(:user_role).update? %>
+      <%= link_to 'Upload Expo Map', new_expo_map_path, :class => "ui primary fluid button" %>
+    <% else %>
+      <h2 class="ui center aligned header">Map of the Expo is not available</h2>
+  <% end %>
+<% end %>
+</div>
+<%= render 'layouts/footer' %>

@@ -1,0 +1,32 @@
+<%= form_for @expo_map, html: { multipart: true } do |f| %>
+  <% if @expo_map.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@expo_map.errors.count, "error") %> prohibited this expo map from being saved:
+      </h2>
+      <ul>
+        <% @expo_map.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="fields">
+    <div class="required eight wide field">
+      <%= f.file_field :image %>
+    </div>
+  </div>
+
+  <br/>
+  <div class="ui equal width grid">
+    <div class="row">
+      <div class="column">
+        <%= f.submit 'Save', :class => 'ui green fluid button', data: {confirm: 'Change the Expo Map image?'} %>
+      </div>
+      <div class="column">
+        <%= link_to "Cancel", expo_maps_path, :class => "ui primary fluid button" %>
+      </div>
+    </div>
+  </div>
+<% end %>

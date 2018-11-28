@@ -3,25 +3,29 @@
   <div class="ui container">
     <%= link_to "Home", root_path, class:"item" %>
     <% if current_user %>
-      <div class="ui dropdown item">
-        Management
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <% if policy(:user_role).index? %>
-            <%= link_to 'Manage user roles', user_roles_path, class:"item" %>
-          <% else %>
-            <div class="item">
-              Please join your project
-            </div>
+      <% if !policy(:user_role).bookmark? %>
+        <div class="ui dropdown item">
+          Management
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <% if policy(:user_role).index? %>
+              <%= link_to 'Manage user roles', user_roles_path, class:"item" %>
+            <% else %>
+              <div class="item">
+                Please join your project
+              </div>
+            <% end %>
+            <% if policy(:user_role).update? %>
+              <%= link_to 'Expo Settings', expo_settings_path, :class => "item" %>
+              <%= link_to 'Expo Map', {:controller => "expo_maps", :action => "index"}, :class => "item" %>
           <% end %>
-          <% if policy(:user_role).update? %>
-            <%= link_to 'Expo Settings', expo_settings_path, :class => "item" %>
-          <% end %>
+          </div>
         </div>
-      </div>
-      <% if policy(:project).bookmark? %>
-        <%= link_to "Bookmarks", bookmarks_path, class:"item" %>
       <% end %>
+      <% if policy(:user_role).bookmark? %>
+        <%= link_to "Bookmarks", bookmarks_path, class:"item" %>
+        <%= link_to 'Expo Map', expo_maps_path, :class => "item" %>
+       <% end %>
     <% end %>
   </div>
   <% if current_user %>

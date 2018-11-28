@@ -22,3 +22,5 @@
 
 # Ignore Idea files
 .idea/
+/public/expo_map/
+/public/uploads/
