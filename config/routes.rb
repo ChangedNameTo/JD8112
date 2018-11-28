@@ -36,4 +36,7 @@ Rails.application.routes.draw do
   resources :bookmarks
   post 'projects/:id/bookmark/', to: 'bookmarks#bookmark', as: :bookmarks_bookmark, format: false
 
+  # Expo Map
+  resources :expo_maps, format: false, path: 'expo_map'
+
 end
