@@ -1,3 +1,6 @@
+<% if !@voting_enabled %>
+  <h3 class="ui red center aligned header">Voting Disabled</h3>
+<% end %>
 <table class="ui celled very compact striped table">
   <tr>
     <th align="center">Team</th>
@@ -6,7 +9,7 @@
       <th align="center">Votes</th>
     <% end %>
     <th align="center">Actions</th>
-    <% if policy(:project).vote? %>
+    <% @voting_enabled && if policy(:project).vote? %>
       <th align="center">Vote</th>
     <% end %>
   </tr>
@@ -30,7 +33,7 @@
             <%= link_to "Delete", project_path(project), method: :delete, :class => "ui red small button", data: { confirm: 'Delete team?' } %>
           <% end %>
         </td>
-        <% if policy(:project).vote? %>
+        <% if @voting_enabled && policy(:project).vote? %>
           <td style="text-align:center;">
             <% if project.voted_by.include?(current_user.id) %>
               <i class="checkmark box icon large color: blue"></i>

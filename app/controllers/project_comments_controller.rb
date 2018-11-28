@@ -7,7 +7,7 @@ class ProjectCommentsController < ApplicationController
 
   def edit
     @project_comment = ProjectComment.find(params[:id])
-
+    puts(params[:id])
     authorize @project_comment
   end
 
