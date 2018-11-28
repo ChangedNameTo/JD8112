@@ -1,4 +1,4 @@
-# CapVote README
+# CapVote Installation Instructions and Release Notes
 
 [![Build Status](https://travis-ci.org/ChangedNameTo/JD8112.svg?branch=master)](https://travis-ci.org/ChangedNameTo/JD8112)
 
@@ -45,9 +45,19 @@ CapVote is a Ruby on Rails web application backed by a PostgresQL database. Ther
 
 * Migrate the database with `rails db:migrate`
 
+* Seed the database with default values with `rails db:seed`
+
 * Start the server with `rails s`
 
 Capvote is now up and running!
+
+* Installation troubleshooting
+	
+	* Ensure that Ruby 2.3.1 is installed. This is crucial.
+	* Ensure that packages are to up date by running `bundle install`.
+	* Ensure that a Postgres user has been created corresponding to your current Linux username.
+	* Ensure that the Postgres libraries and headers found in the package `postgresql-server-dev-10` have been installed. 
+	* Ensure that the database has been created, migrated, and seeded as outlined above.
 
 ---
 
@@ -56,6 +66,20 @@ If you have any questions contact Will Mitchell at william.m95@gmail.com
 #### II. Release Notes
 
 * Version 1.0
+	* New Features in this release.
+		*  Voting and leaving comments on projects is now fully functional.
+		* Visitors can now view a map of the expo.
+		* Administrators can enable/disable voting.
+		* Administrators can create/delete projects.
+		* Administrators can bulk-import projects.
+		* Administrators can generate a PDF report of the expo voting.
+		
+	* Bug fixes since the last release.
+		* None since this is the first official release.
+		
+	* Current bugs
+		* Bug while viewing projects when no projects have been added.
+		* Bug when a user tries to modify his/her comment.
 
 #### III. Tools used
 
