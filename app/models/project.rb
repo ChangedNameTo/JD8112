@@ -49,13 +49,16 @@ class Project < ApplicationRecord
       project_desc   = row[4]
       course_section = row[5]
 
-      Project.create!(id:           team_number,
-                      name:         project_name,
-                      description:  project_desc,
-                      client:       "client",
-                      team:         "team",
-                      repo_link:    "www.github.com")
-
+      if Project.exists?(id: team_number)
+        puts "This project already exists"
+      else
+        Project.create!(id:           team_number,
+                        name:         project_name,
+                        description:  project_desc,
+                        client:       "",
+                        team:         team_number,
+                        repo_link:    "")
+      end
     end
   end
 end

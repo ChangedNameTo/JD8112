@@ -68,11 +68,20 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def redirect(url, text)
+    redirect_to url, notice: text
+  end
+
   def import
     if params[:file]
-      Project.import_csv(params[:file])
+      Project.import_csv(params[:file].path)
+      redirect(root_url, "CSV imported successfully")
+    else
+      redirect(root_url, "Please select a CSV file to upload")
     end
   end
+
+
 
   private
 
