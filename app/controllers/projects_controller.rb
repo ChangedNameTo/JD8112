@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authorize_action,
-    only: [:index, :show, :new, :create, :voting_pdf]
+    only: [:index, :show, :new, :create, :voting_pdf, :import]
 
   def new
     @project = Project.new
@@ -94,7 +94,9 @@ class ProjectsController < ApplicationController
   end
 
   def import
-    Project.import(params[:file])
-    redirect_to root_url, notice: "Data imported"
+    if params[:file]
+      Project.import_csv(params[:file])
+    end
   end
+
 end
