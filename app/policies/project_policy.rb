@@ -38,6 +38,10 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def voting_pdf?
-    true
+    create?
+  end
+
+  def import?
+    create?
   end
 end
