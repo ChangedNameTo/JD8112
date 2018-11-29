@@ -79,9 +79,9 @@
   <h4> Bulk import projects CSV </h4>
     <% if policy(:project).create? %>
       <%= form_tag import_projects_path, multipart: true do %>
-      <%= file_field_tag :file %>
-      <%= submit_tag "Import CSV" %>
-      <% end %> 
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import CSV" %>
+      <% end %>
     <% end %>
 </div>
 </br>

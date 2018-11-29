@@ -68,6 +68,12 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def import
+    if params[:file]
+      Project.import_csv(params[:file])
+    end
+  end
+
   private
 
   def authorize_action
@@ -92,11 +98,4 @@ class ProjectsController < ApplicationController
       :body
     )
   end
-
-  def import
-    if params[:file]
-      Project.import_csv(params[:file])
-    end
-  end
-
 end

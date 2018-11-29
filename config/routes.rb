@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     get :voting_pdf
     collection { post :import }
   end
-  
+
   resources :project_comments
 
   # Project Votes
