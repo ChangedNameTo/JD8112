@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # Users
   resources :users
+  match 'destroy_all' => 'users#destroy_all', :via => :delete
 
   # Roles
   resources :roles
