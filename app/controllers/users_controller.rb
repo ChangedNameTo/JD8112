@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   # before_action :authorize_action,
   #   only: [:index, :show, :new, :create, :organization_disable, :organization_enable]
 
+  helper_method :remove_visitors
+
   def new
     @user = User.new
   end
@@ -51,6 +53,16 @@ class UsersController < ApplicationController
 
     redirect_to user_path
   end
+
+  def remove_visitors
+    sql = 'select * from users 
+            where id not in (select user_id
+                             from user_roles);'
+    @visitors = User.find_by_sql(sql)
+    
+    # TODO: delete visitors
+  end
+
 
   private
 
