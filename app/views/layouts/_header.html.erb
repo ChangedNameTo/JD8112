@@ -10,10 +10,6 @@
           <div class="menu">
             <% if policy(:user_role).index? %>
               <%= link_to 'Manage user roles', user_roles_path, class:"item" %>
-
-              <!-- TODO: call remove_visitors method from this link -->
-              <%= link_to 'Remove Visitors', users_path, method: :remove_visitors,
-               class:"item", data: { confirm: "Remove all visitors from the database?" } %>
             <% else %>
               <div class="item">
                 Please join your project

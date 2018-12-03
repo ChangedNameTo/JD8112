@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
-  # before_action :authorize_action,
-  #   only: [:index, :show, :new, :create, :organization_disable, :organization_enable]
-
-  helper_method :remove_visitors
+  before_action :authorize_action,
+    only: [:index, :show, :new, :create, :update, :destroy, :destroy_all]
 
   def new
     @user = User.new
@@ -45,24 +43,17 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-
-    authorize @user
-
-    @user.delete
-
-    redirect_to user_path
+    User.find(params[:id]).delete
   end
 
-  def remove_visitors
-    sql = 'select * from users 
-            where id not in (select user_id
-                             from user_roles);'
-    @visitors = User.find_by_sql(sql)
-    
-    # TODO: delete visitors
-  end
+  def destroy_all
+    sql = 'DELETE FROM users
+            WHERE id NOT IN (SELECT user_id
+                               FROM user_roles);'
+    ActiveRecord::Base.connection.execute(sql)
 
+    redirect_to expo_settings_path
+  end
 
   private
 
@@ -71,16 +62,11 @@ class UsersController < ApplicationController
                                  :last_name,
                                  :email_address,
                                  :phone_number,
-                                 :affiliated_organization,
-                                 :big,
-                                 :image,
-                                 :number,
-                                 :pledge_class_id,
-                                 :current_status_id
+                                 :image
                                 )
   end
 
-  # def authorize_action
-  #   authorize User
-  # end
+  def authorize_action
+    authorize User
+  end
 end

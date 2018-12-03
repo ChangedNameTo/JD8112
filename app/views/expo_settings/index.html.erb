@@ -2,4 +2,7 @@
 <div class="ui container segment">
   <%= render 'form' %>
 </div>
+<div class="ui container segment">
+  <%= link_to 'Remove Visitors', destroy_all_path, method: :delete, class:"ui fluid red button", data: { confirm: "Remove all visitors from the database? This is irreversible, and will delete ALL visitor data, including comments and votes. This is highly destructive. Are you sure you wish to proceed?" } %>
+</div>
 <%= render 'layouts/footer' %>
