@@ -50,7 +50,6 @@
         <tr>
           <td style="text-align:center;"><%= project.team %></td>
           <td style="text-align:center;"><%= project.name %></td>
-            <td style="text-align:center;"><%= project.vote_count %></td>
           <td style="text-align:center;">
             <%= link_to bookmarkIcon(project, current_user), bookmarks_bookmark_path(project, :user_id => current_user, :project_id => project), class: 'bookmark', method: :post, :remote => true %>
             <%= link_to "Show", project_path(project), :class => "ui primary small button" %>
