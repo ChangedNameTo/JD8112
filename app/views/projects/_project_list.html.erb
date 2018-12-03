@@ -15,42 +15,70 @@
     <% end %>
   </tr>
     <% if @projects && @projects.count != 0 %>
+      <% if policy(:project).view_votes? %>
+        <% @projects.each do |project| %>
+          <tr>
+            <td style="text-align:center;"><%= project.team %></td>
+            <td style="text-align:center;"><%= project.name %></td>
+              <td style="text-align:center;"><%= project.vote_count %></td>
+            <td style="text-align:center;">
+              <% if policy(project).bookmark? %>
+                <%= link_to bookmarkIcon(project, current_user), bookmarks_bookmark_path(project, :user_id => current_user, :project_id => project), class: 'bookmark', method: :post, :remote => true %>
+              <% end %>
+              <%= link_to "Show", project_path(project), :class => "ui primary small button" %>
+              <%= link_to "Edit", edit_project_path(project), :class => "ui green small button" %>
+              <%= link_to "Delete", project_path(project), method: :delete, :class => "ui red small button", data: { confirm: 'Delete team?' } %>
+            </td>
+            <% if @voting_enabled && policy(:project).vote? %>
+              <td style="text-align:center;">
+                <% if project.voted_by.include?(current_user.id) %>
+                  <i class="checkmark box icon large color: blue"></i>
+                <% else %>
+                  <%= button_to '+1',
+                    project_votes_path(
+                      project,
+                      :project_id => project.id,
+                      :user_id => current_user.id,
+                    :yes => 1),
+                    method: :post,
+                    :class => "ui primary small button" %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% else %>
       <% @projects.each do |project| %>
-      <tr>
-        <td style="text-align:center;"><%= project.team %></td>
-        <td style="text-align:center;"><%= project.name %></td>
-        <% if policy(:project).view_votes? %>
-          <td style="text-align:center;"><%= project.vote_count %></td>
-        <% end %>
-        <td style="text-align:center;">
-          <% if policy(project).bookmark? %>
-            <%= link_to bookmarkIcon(project, current_user), bookmarks_bookmark_path(project, :user_id => current_user, :project_id => project), class: 'bookmark', method: :post, :remote => true %>
-          <% end %>
-          <%= link_to "Show", project_path(project), :class => "ui primary small button" %>
-          <% if policy(project).update? %>
-            <%= link_to "Edit", edit_project_path(project), :class => "ui green small button" %>
-          <% end %>
-          <% if policy(project).destroy? %>
-            <%= link_to "Delete", project_path(project), method: :delete, :class => "ui red small button", data: { confirm: 'Delete team?' } %>
-          <% end %>
-        </td>
-        <% if @voting_enabled && policy(:project).vote? %>
+        <tr>
+          <td style="text-align:center;"><%= project.team %></td>
+          <td style="text-align:center;"><%= project.name %></td>
+            <td style="text-align:center;"><%= project.vote_count %></td>
           <td style="text-align:center;">
-            <% if project.voted_by.include?(current_user.id) %>
-              <i class="checkmark box icon large color: blue"></i>
-            <% else %>
-              <%= button_to '+1',
-                project_votes_path(
-                  project,
-                  :project_id => project.id,
-                  :user_id => current_user.id,
-                  :yes => 1),
-                method: :post,
-                :class => "ui primary small button" %>
+            <% if policy(project).bookmark? %>
+              <%= link_to bookmarkIcon(project, current_user), bookmarks_bookmark_path(project, :user_id => current_user, :project_id => project), class: 'bookmark', method: :post, :remote => true %>
             <% end %>
+            <%= link_to "Show", project_path(project), :class => "ui primary small button" %>
+            <%= link_to "Edit", edit_project_path(project), :class => "ui green small button" %>
+            <%= link_to "Delete", project_path(project), method: :delete, :class => "ui red small button", data: { confirm: 'Delete team?' } %>
           </td>
-        <% end %>
-      </tr>
+          <% if @voting_enabled && policy(:project).vote? %>
+            <td style="text-align:center;">
+              <% if project.voted_by.include?(current_user.id) %>
+                <i class="checkmark box icon large color: blue"></i>
+              <% else %>
+                <%= button_to '+1',
+                  project_votes_path(
+                    project,
+                    :project_id => project.id,
+                    :user_id => current_user.id,
+                    :yes => 1),
+                    method: :post,
+                    :class => "ui primary small button" %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
     <% end %>
   <% else %>
     <tr>
