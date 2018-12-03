@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 6) do
+ActiveRecord::Schema.define(version: 7) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,14 +107,14 @@ ActiveRecord::Schema.define(version: 6) do
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
   end
 
-  add_foreign_key "bookmarks", "projects", name: "fk_bookmark_project"
-  add_foreign_key "bookmarks", "users", name: "fk_bookmark_user"
-  add_foreign_key "project_comments", "projects", name: "fk_project_comment_project"
-  add_foreign_key "project_comments", "users", name: "fk_project_comment_user"
-  add_foreign_key "project_members", "projects", name: "fk_project_member_project"
-  add_foreign_key "project_members", "users", name: "fk_project_member_user"
-  add_foreign_key "project_votes", "projects", name: "fk_project_vote_project"
-  add_foreign_key "project_votes", "users", name: "fk_project_vote_user"
-  add_foreign_key "user_roles", "roles", name: "fk_user_role_role"
-  add_foreign_key "user_roles", "users", name: "fk_user_role_user"
+  add_foreign_key "bookmarks", "projects", name: "fk_bookmark_project", on_delete: :cascade
+  add_foreign_key "bookmarks", "users", name: "fk_bookmark_user", on_delete: :cascade
+  add_foreign_key "project_comments", "projects", name: "fk_project_comment_project", on_delete: :cascade
+  add_foreign_key "project_comments", "users", name: "fk_project_comment_user", on_delete: :cascade
+  add_foreign_key "project_members", "projects", name: "fk_project_member_project", on_delete: :cascade
+  add_foreign_key "project_members", "users", name: "fk_project_member_user", on_delete: :cascade
+  add_foreign_key "project_votes", "projects", name: "fk_project_vote_project", on_delete: :cascade
+  add_foreign_key "project_votes", "users", name: "fk_project_vote_user", on_delete: :cascade
+  add_foreign_key "user_roles", "roles", name: "fk_user_role_role", on_delete: :cascade
+  add_foreign_key "user_roles", "users", name: "fk_user_role_user", on_delete: :cascade
 end
